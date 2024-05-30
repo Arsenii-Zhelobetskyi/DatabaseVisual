@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/board',[MainController::class, 'board']);
+Route::get('/board',[MainController::class, 'board'])->middleware('auth');
 
 
 require __DIR__.'/auth.php';

@@ -4,6 +4,8 @@ import { ref } from "vue";
 
 import MyEntity from "../Components/MyEntity.vue";
 import { Background } from "@vue-flow/background";
+import Header from "@/Components/Header.vue";
+
 const props = defineProps([
     "id",
     "data",
@@ -32,6 +34,7 @@ const elements = ref([
 
 <template>
     <div class="w-screen h-screen">
+        <Header />
         <VueFlow v-model="elements">
             <Background size="2" />
 

@@ -1,31 +1,27 @@
 <script setup>
 import { Handle, Position } from "@vue-flow/core";
-import { ref } from "vue";
-import { useVueFlow } from "@vue-flow/core";
-const { findNode } = useVueFlow({});
-// const node = findNode("1");
 
-// console.log(node.label); // This will log the entire Proxy object
-const counter = ref(0);
+const props = defineProps(["data"]);
+console.log(props.data);
 </script>
 
 <template>
-    <div class="custom-node">
-        <Handle type="target" :position="Position.Top" />
-        <slot name="label" />
+    <div
+        class="bg-white border-2 border-border custom-node p-1 min-w-40 min-h-40 rounded"
+    >
+        <div class="bg-red-500 p-2 rounded-t">{{ props.data.label }}</div>
+        <div>
+            <Handle type="target" :position="Position.Left" />
+            <div>Node handle</div>
+        </div>
+        <div class="relative">
+            <Handle
+                :id="props.data.data.id"
+                type="source"
+                :position="Position.Right"
+            />
+
+            <div>{{ props.data.data.label }}</div>
+        </div>
     </div>
 </template>
-
-<style scoped>
-.custom-node {
-    height: 100%;
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background: white;
-    border: 1px solid black;
-    border-radius: 4px;
-}
-</style>

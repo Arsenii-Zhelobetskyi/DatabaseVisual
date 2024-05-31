@@ -1,43 +1,22 @@
 <script setup>
 import { VueFlow } from "@vue-flow/core";
-import { ref } from "vue";
+import { Background } from "@vue-flow/background";
 
 import MyEntity from "../Components/MyEntity.vue";
-import { Background } from "@vue-flow/background";
-const props = defineProps([
-    "id",
-    "data",
-    "position",
-    "selected",
-    "dragging",
-    "resizing",
-    "computedPosition",
-    "parentNode",
-    "isParent",
-]);
-console.log(props);
-const elements = ref([
-    // nodes
+import MyField from "../Components/MyField.vue";
 
-    // an input node, specified by using `type: 'input'`
-    {
-        id: "1",
-        type: "entity",
+import { useEntitiesStore } from "@/stores/entities";
 
-        label: "Node 12",
-        position: { x: 250, y: 5 },
-    },
-]);
+const store = useEntitiesStore();
 </script>
 
 <template>
     <div class="w-screen h-screen">
-        <VueFlow v-model="elements">
+        <VueFlow v-model="store.entities">
             <Background size="2" />
 
-            <!-- bind your custom node type to a component by using slots, slot names are always `node-<type>` -->
-            <template #node-entity="specialNodeProps">
-                <MyEntity v-bind="specialNodeProps" />
+            <template #node-entity="data">
+                <MyEntity :data="data" />
             </template>
         </VueFlow>
     </div>

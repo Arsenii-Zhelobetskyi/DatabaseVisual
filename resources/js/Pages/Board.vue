@@ -1,7 +1,7 @@
 <script setup>
 import { VueFlow } from "@vue-flow/core";
 import { Background } from "@vue-flow/background";
-
+import Header from "@/Components/Header.vue";
 import MyEntity from "../Components/MyEntity.vue";
 import MyField from "../Components/MyField.vue";
 
@@ -12,11 +12,11 @@ const store = useEntitiesStore();
 import { useVueFlow } from "@vue-flow/core";
 
 const { nodesConnectable } = useVueFlow();
-console.log(nodesConnectable.value);
 </script>
 
 <template>
     <div class="w-screen h-screen">
+        <Header />`
         <VueFlow v-model="store.entities">
             <Background size="2" />
 

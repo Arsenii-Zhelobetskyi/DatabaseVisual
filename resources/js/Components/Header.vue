@@ -37,7 +37,7 @@
                     <BaseButton mode="dialog-no" @click="closeModal"
                         >No, go back
                     </BaseButton>
-                    <BaseButton mode="light" link :to="'/dashboard'"
+                    <BaseButton mode="light" @click="addEntity"
                         >Confirm</BaseButton
                     >
                 </template>
@@ -68,8 +68,9 @@ export default {
             this.showModal = true;
         },
         closeModal() {
-            this.showModal = true;
+            this.showModal = false;
         },
+        addEntity() {},
     },
 };
 </script>
@@ -87,7 +88,7 @@ export default {
     justify-content: space-between;
     padding: 0 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 3);
-    z-index: 1000;
+    z-index: 10;
 }
 
 .container {

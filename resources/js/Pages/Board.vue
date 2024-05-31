@@ -8,6 +8,11 @@ import MyField from "../Components/MyField.vue";
 import { useEntitiesStore } from "@/stores/entities";
 
 const store = useEntitiesStore();
+
+import { useVueFlow } from "@vue-flow/core";
+
+const { nodesConnectable } = useVueFlow();
+console.log(nodesConnectable.value);
 </script>
 
 <template>

@@ -2,13 +2,16 @@
     <button v-if="!link" :class="mode">
         <slot></slot>
     </button>
-    <router-link v-else :to="to" :class="mode">
+    <NavLink v-else :href="route(to)" :class="mode">
         <slot></slot>
-    </router-link>
+    </NavLink>
 </template>
 
 <script>
+import NavLink from "../../../vendor/laravel/breeze/stubs/inertia-vue-ts/resources/js/Components/NavLink.vue";
+
 export default {
+    components: { NavLink },
     props: {
         mode: {
             type: String,

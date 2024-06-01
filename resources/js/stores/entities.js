@@ -9,18 +9,34 @@ export const useEntitiesStore = defineStore("entitiesStore", {
                 label: "I'm 1",
                 position: { x: 50, y: 50 },
                 data: {
-                    label: "I'm child of 1 and i'm 3",
-                    handleId: "a",
+                    labelHandles: [
+                        { label: "I'm child of 1", handleId: "a" },
+                        { label: "Another child", handleId: "b" },
+                    ],
                 },
             },
             {
                 id: "2",
                 type: "entity",
                 label: "i'm 2 node",
-                position: { x: 0, y: 0 },
+                position: { x: 100, y: 100 },
                 data: {
-                    label: "another txt",
-                    handleId: "b",
+                    labelHandles: [
+                        { label: "I'm child of 2", handleId: "c" },
+                        { label: "Another second child", handleId: "d" },
+                    ],
+                },
+            },
+            {
+                id: "3",
+                type: "entity",
+                label: "i'm 3 node",
+                position: { x: 200, y: 250 },
+                data: {
+                    labelHandles: [
+                        { label: "I'm child of 3", handleId: "e" },
+                        { label: "Another third child", handleId: "f" },
+                    ],
                 },
             },
         ],

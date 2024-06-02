@@ -18,7 +18,7 @@ import AddWorksheet from "@/Components/AddWorksheet.vue";
                 <div class="flex justify-end">
                 <AddWorksheet/>
                 </div>
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="bg-gray-100 shadow-sm sm:rounded-lg">
                     <WorksheetEntity/>
                 </div>
             </div>

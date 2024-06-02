@@ -23,14 +23,6 @@
                                         <label for="worksheet_name" class="block">Назва:</label>
                                         <input type="text" v-model="form.worksheet_name" required class="w-full px-3 py-2 border rounded-md">
                                     </div>
-                                    <div class="mb-4">
-                                        <label for="user_id" class="block">ID користувача:</label>
-                                        <input type="number" v-model="form.user_id" required class="w-full px-3 py-2 border rounded-md">
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="table_data" class="block">Дані таблиці (JSON):</label>
-                                        <textarea v-model="form.table_data" class="w-full px-3 py-2 border rounded-md"></textarea>
-                                    </div>
                                     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Додати</button>
                                 </form>
                             </div>
@@ -48,9 +40,7 @@ export default {
         return {
             showModal: false,
             form: {
-                worksheet_name: '',
-                user_id: '',
-                table_data: ''
+                worksheet_name: ''
             },
             error: null,
             success: null
@@ -62,9 +52,7 @@ export default {
             this.success = null;
 
             const requestData = {
-                worksheet_name: this.form.worksheet_name,
-                user_id: this.form.user_id,
-                table_data: this.form.table_data ? JSON.parse(this.form.table_data) : null
+                worksheet_name: this.form.worksheet_name
             };
 
             try {
@@ -87,8 +75,6 @@ export default {
                 const responseData = await response.json();
                 this.success = 'Запис успішно додано!';
                 this.form.worksheet_name = '';
-                this.form.user_id = '';
-                this.form.table_data = '';
             } catch (error) {
                 this.error = 'Не вдалося відправити дані: ' + error.message;
             }
@@ -96,5 +82,7 @@ export default {
     }
 };
 </script>
+
+
 
 

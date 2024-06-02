@@ -21,8 +21,11 @@
                 <NavLink :href="route('board')" method="get" as="button"
                     >Board</NavLink
                 >
+                <NavLink :href="route('dashboard')" method="get" as="button"
+                    >Dashboard</NavLink
+                >
                 <NavLink :href="route('logout')" method="post" as="button"
-                    >Logout</NavLink
+                >Logout</NavLink
                 >
             </nav>
             <button

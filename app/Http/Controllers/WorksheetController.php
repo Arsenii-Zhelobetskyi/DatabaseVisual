@@ -10,21 +10,26 @@ class WorksheetController extends Controller
     /* show all worksheets */
     public function index()
     {
-        $worksheets = Worksheet::all();
+        $userId = auth()->id(); // Отримуємо ідентифікатор авторизованого користувача
+        $worksheets = Worksheet::where('user_id', $userId)->get(); // Фільтруємо записи за цим ідентифікатором
         return response()->json($worksheets);
     }
     /*save new worksheets*/
     public function store(Request $request)
     {
-      $validated = $request->validate([
-      'worksheet_name' => 'required|string|max:100|unique:worksheets',
-      'user_id' => 'required|exists:users,id',
-      'table_data' => 'nullable|json'
-    ]);
+        $validated = $request->validate([
+            'worksheet_name' => 'required|string|max:100|unique:worksheets',
+        ]);
 
-    $worksheet = Worksheet::create($validated);
-    return response()->json($worksheet, 201);
-  }
+        // Додаємо ID користувача з авторизованого користувача
+        $validated['user_id'] = auth()->id();
+
+        // Створюємо новий запис
+        $worksheet = Worksheet::create($validated);
+
+        return response()->json($worksheet, 201);
+    }
+
 
     public function show($id)
     {

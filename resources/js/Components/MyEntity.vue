@@ -1,26 +1,25 @@
 <script setup>
-import { Handle, Position } from "@vue-flow/core";
+import { Handle, Position } from '@vue-flow/core'
 
-const props = defineProps(["data"]);
-console.log(props.data);
+const props = defineProps(['entityData'])
 </script>
 
 <template>
-    <div
-        class="bg-white border-2 border-border custom-node p-1 min-w-40 min-h-40 rounded"
-    >
-        <div class="bg-red-500 p-2 rounded-t">{{ props.data.label }}</div>
+  <div class="custom-node min-h-40 min-w-40 rounded border-2 border-border bg-white p-1">
+    <div class="rounded-t bg-red-500 p-2">{{ props.entityData.label }}</div>
 
-        <div class="relative">
-            <Handle
+    <div v-for="field in props.entityData.data">
+      <div class="relative">
+        <!-- <Handle
                 :id="props.data.data.handleId"
                 type="source"
                 :position="Position.Right"
-                :connectableStart="true"
-                :connectableEnd="true"
-            />
+        :connectableStart="true"
+        :connectableEnd="true"
+      /> -->
 
-            <div>{{ props.data.data.label }}</div>
-        </div>
+        <div>{{ field.name }}</div>
+      </div>
     </div>
+  </div>
 </template>

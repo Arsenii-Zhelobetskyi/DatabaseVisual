@@ -1,29 +1,39 @@
 <template>
-  <header class="header">
-    <div class="container">
-      <Link :href="route('profile.edit')">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="36"
-          height="36"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#ffffff"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-      </Link>
-      <nav class="nav">
-        <NavLink :href="route('board')" method="get" as="button">Board</NavLink>
-        <NavLink :href="route('logout')" method="post" as="button">Logout</NavLink>
-      </nav>
-      <button class="rounded bg-blue-600 p-2 text-white hover:bg-blue-800" @click="openModal">
-        Add Entity
-      </button>
+    <header class="header">
+        <div class="container">
+            <Link :href="route('profile.edit')">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </Link>
+            <nav class="nav">
+                <NavLink :href="route('board')" method="get" as="button"
+                    >Board</NavLink
+                >
+                <NavLink :href="route('dashboard')" method="get" as="button"
+                    >Dashboard</NavLink
+                >
+                <NavLink :href="route('logout')" method="post" as="button"
+                >Logout</NavLink
+                >
+            </nav>
+            <button
+                class="text-white bg-blue-600 p-2 rounded hover:bg-blue-800"
+                @click="openModal"
+            >
+                Add Entity
+            </button>
 
       <BaseDialog :showModal="showModal" title="Want to add new entity ?">
         <AddEntityForm />
